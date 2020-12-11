@@ -38,8 +38,17 @@ button{
     border-radius: 5%;
 }
 
+.image-container{
+    width: 125px;
+    height:125px;
+    /* border: 1px solid black; */
+    /* display: inline; */
+    margin: 0 auto;
+}
+
 img {
     margin: 1em;
+    /* border: 1px solid pink; */
 }
 
 .city-table {
