@@ -1,0 +1,59 @@
+body{
+    background-color: #CBF3F0;
+    text-align: center;
+    color: #2EC4B6;
+}
+
+.today {
+    width: 450px;
+    margin: 0 auto;
+    border: 1px solid #2EC4B6;
+    text-align: left;
+    border-collapse: collapse;
+    font-weight: normal;
+}
+
+.today tr td:nth-child(odd) {
+    border: 1px solid #2EC4B6;
+    border-collapse: collapse;
+    background-color: #FFBF69;
+    color: #2EC4B6;
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+.today tr td:nth-child(even) {
+    border: 1px solid #2EC4B6;
+    border-collapse: collapse;
+    background-color: white;;
+    padding: 0.5em;
+}
+
+.daily {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #2EC4B6;
+    text-align: left;
+    border-collapse: collapse;
+    font-weight: normal;
+}
+
+.daily tr td:nth-child(odd){
+    border: 1px solid #2EC4B6;
+    border-collapse: collapse;
+    background-color: #FFBF69;
+    color: #2EC4B6;
+    font-weight: bold;
+    /* padding: 0.5em; */
+}
+
+.daily tr td:nth-child(even){
+    border: 1px solid #2EC4B6;
+    border-collapse: collapse;
+    background-color: white;;
+    /* padding: 0.5em; */
+}
+
+.heading{
+    display: inline;
+}

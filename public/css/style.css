@@ -1,0 +1,65 @@
+body {
+    background-color: #CBF3F0;
+    text-align: center;
+    color: #2EC4B6;
+    font-weight: bold;
+}
+
+form {
+    border: 1px solid #FF9F1C;
+    background-color: #FFBF69;
+    padding: 1em;
+    border-radius: 5%;
+    text-align: left;
+    width:200px;
+    margin: auto;
+    
+}
+
+label{
+    display: block;
+    float: left;
+    margin-bottom: 0.25em;
+    color: white;
+}
+
+input{
+    width: 95%;
+    border: white;
+}
+
+button{
+    margin-top: 1em;
+    display: block;
+    background-color:#2EC4B6;
+    color: white;
+    border: white;
+    padding: 0.5em;
+    border-radius: 5%;
+}
+
+img {
+    margin: 1em;
+}
+
+.city-table {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #2EC4B6;
+    text-align: left;
+    border-collapse: collapse;
+    font-weight: normal;
+}
+
+td {
+    border: 1px solid #2EC4B6;
+    border-collapse: collapse;
+    background-color: white;
+    padding: 0.5em;
+}
+
+.city td{
+    font-weight: bold;
+    background-color: #FFBF69;
+    color: #2EC4B6
+}
