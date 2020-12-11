@@ -8,7 +8,8 @@
 </head>
 <body>
     {{>Nav}}
-    <h1>Enter a city &amp country to display the weather</h1>
+    <h1>Today's weather</h1>
+    <h2>Enter a city &amp country then click search</h2>
     <br>
    
     <form action="/" method="POST">
@@ -19,8 +20,14 @@
         <button type="submit">search</button>
     </form>
 
+    <div class="image-container">
+    {{!-- the if statement checks if the imageIcon has any value passed into it and only displays it if it does --}}
+    {{#if imageIcon}}
 
     <img src="http://openweathermap.org/img/wn/{{imageIcon}}@2x.png" alt="weather image">
+
+    {{/if}}
+    </div>
 
     <table class="city-table">
         <tr class="city">
