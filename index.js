@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 // tells dotenv where the variables are
 dotenv.config({path: './.env'});
 
-const keytest = process.env.KEY;
+const key = process.env.KEY;
 
 const viewsPath = path.join(__dirname, "/views");
 const partialPath = path.join(__dirname,"views/inc");
@@ -28,18 +28,17 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.json());
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
     res.render("index");
-    console.log(key)
 });
 
 app.post("/", async (req, res) => {
     
     try {
 
-        const weatherApi = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.body.city},,${req.body.country}&appid=${keytest}&units=metric`)
+        const weatherApi = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.body.city},,${req.body.country}&appid=${key}&units=metric`)
 
-        console.log(weatherApi.data)
+        // console.log(weatherApi.data)
 
         let localTime  = showLocalTime(weatherApi.data.dt,weatherApi.data.timezone);
 
@@ -57,7 +56,7 @@ app.post("/", async (req, res) => {
             weather: weatherApi.data.weather,
             sunrise: sunrise, 
             sunset: sunset,
-            localTime: localTime
+            localTime: localTime,
         })
 
     } catch (error) {
@@ -75,7 +74,7 @@ app.get("/Sydney", async (req, res) => {
     
     try {
     
-        const weatherInfoApi = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&units=metric&appid=${keytest}`);
+        const weatherInfoApi = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&units=metric&appid=${key}`);
 
         console.log(weatherInfoApi.data)
 
@@ -108,7 +107,51 @@ app.get("/Sydney", async (req, res) => {
         res.render("404")
 
     }
-})
+});
+
+app.get("/7Days", (req, res) => {
+    res.render("7Days")
+});
+
+app.post("/7Days", async (req, res) => {
+
+    try {
+
+        const weatherApi = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.body.city},,${req.body.country}&appid=${key}&units=metric`);
+
+        const lat = weatherApi.data.coord.lat;
+        const lon = weatherApi.data.coord.lon;
+
+        const sevenDayApi = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${key}`);
+
+        const localTime = showLocalTime(sevenDayApi.data.current.dt, sevenDayApi.data.timezone_offset);
+
+        const sunriseToday = showLocalTime(sevenDayApi.data.current.sunrise, sevenDayApi.data.timezone_offset);
+
+        const sunsetToday = showLocalTime(sevenDayApi.data.current.sunset, sevenDayApi.data.timezone_offset)
+
+        const dailyInfo = extractDailyData(sevenDayApi.data.daily, sevenDayApi.data.timezone_offset, showLocalDate, showLocalTime)
+
+        res.render("7Days", {
+                latitude: lat,
+                longitude: lon,
+                localTime: localTime,
+                sunriseToday: sunriseToday,
+                sunsetToday: sunsetToday,
+                currentTemp: sevenDayApi.data.current.temp,
+                currentFeelsLike: sevenDayApi.data.current.feels_like, 
+                currentHumidity: sevenDayApi.data.current.humidity,
+                currentWeather: sevenDayApi.data.current.weather[0].description,
+                currentWeatherIcon: sevenDayApi.data.current.weather[0].icon,
+                daily: dailyInfo
+        });
+
+    } catch (error) {
+
+        console.log(error);
+    }
+
+});
 
 app.get("*", (req, res) => {
 
