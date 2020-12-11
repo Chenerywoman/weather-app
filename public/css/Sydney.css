@@ -11,6 +11,7 @@ body{
     text-align: left;
     border-collapse: collapse;
     font-weight: normal;
+    margin-bottom: 5em;
 }
 
 .today tr td:nth-child(odd) {
@@ -36,6 +37,7 @@ body{
     text-align: left;
     border-collapse: collapse;
     font-weight: normal;
+    margin-bottom: 5em;
 }
 
 .daily tr td:nth-child(odd){
@@ -44,16 +46,10 @@ body{
     background-color: #FFBF69;
     color: #2EC4B6;
     font-weight: bold;
-    /* padding: 0.5em; */
 }
 
 .daily tr td:nth-child(even){
     border: 1px solid #2EC4B6;
     border-collapse: collapse;
     background-color: white;;
-    /* padding: 0.5em; */
-}
-
-.heading{
-    display: inline;
 }
