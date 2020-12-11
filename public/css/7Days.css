@@ -1,0 +1,39 @@
+body {
+    background-color: #CBF3F0;
+    text-align: center;
+    color: #2EC4B6;
+    font-weight: bold;
+}
+
+.seven-days-form{
+    border: 1px solid #FF9F1C;
+    background-color: #FFBF69;
+    padding: 1em;
+    border-radius: 5%;
+    text-align: left;
+    width:200px;
+    margin: auto;
+}
+
+.seven-days-form label{
+    display: block;
+    float: left;
+    margin-bottom: 0.25em;
+    color: white;
+}
+
+.seven-days-form input{
+    width: 95%;
+    border: white;
+}
+
+.seven-days-form button {
+    margin-top: 1em;
+    display: block;
+    background-color:#2EC4B6;
+    color: white;
+    border: white;
+    padding: 0.5em;
+    border-radius: 5%;
+
+}
