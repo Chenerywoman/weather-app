@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Sydney.css">
+    <title>Sydney</title>
+</head>
+<body>
+    {{>Nav}}
+    <h1>Information about Sydney, Australia</h1>
+    <h2>Local time: {{localTime}}</h2>
+     <img src="http://openweathermap.org/img/wn/{{currentWeatherIcon}}@2x.png" alt="weather image">
+    <p>
+        <table class="today">
+            <tr>
+                <td>latitude</td>
+                <td>{{latitude}}</td>
+                <td>longitude</td>
+                <td>{{longitude}}</td>
+            </tr>
+            <tr>
+                <td>sunrise today</td>
+                <td>{{sunriseToday}}</td>
+                <td>sunset today</td>
+                <td>{{sunsetToday}}</td>
+            </tr>
+            <tr>
+                <td>today's temperature °C</td>
+                <td>{{currentTemp}}</td>
+                <td>feels like °C</td>
+                <td>{{currentFeelsLike}}</td>
+            </tr>
+        <tr>
+                <td>current humidity</td>
+                <td>{{currentHumidity}}</td>
+                <td>current weather</td>
+                <td>{{currentWeather}}</td>
+        </tr>
+
+        </table>
+    </p>
+
+    <h2>Next 7 days</h2>
+    
+        {{#each daily}}
+        <h3 class="heading">{{this.date}}: {{this.weather}}</h3>
+          <img src="http://openweathermap.org/img/wn/{{this.weatherIcon}}@2x.png" alt="weather image">
+        <table class="daily">
+            <tr>
+                <td>sunrise</td>
+                <td>{{this.sunrise}}</td>
+            </tr>
+            <tr>
+                <td>sunset</td>
+                <td>{{this.sunset}}</td>
+            </tr>
+             <tr>
+                <td>temp morn °C</td>
+                <td>{{this.mornTemp}}</td>
+            </tr>
+            <tr>    
+                <td>min temp day °C</td>
+                <td>{{this.minDayTemp}}</td>
+            </tr>
+            <tr>    
+                <td>max temp day °C</td>
+                <td>{{this.maxDayTemp}}</td>
+            </tr>
+             <tr>    
+                <td>temp eve °C</td>
+                <td>{{this.eveTemp}}</td>
+            </tr>
+             <tr>    
+                <td>temp night °C</td>
+                <td>{{this.nightTemp}}</td>
+            </tr>
+        </table>
+        {{/each}}
+        
+</body>
+</html>

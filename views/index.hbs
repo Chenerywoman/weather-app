@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Search Weather</title>
+</head>
+<body>
+    {{>Nav}}
+    <h1>Enter a city &amp country to display the weather</h1>
+    <br>
+   
+    <form action="/" method="POST">
+        <label for="city">city</label>
+        <input required type="text" name="city">
+        <label for="country">country</label>
+        <input required type="text" name="country">
+        <button type="submit">search</button>
+    </form>
+
+
+    <img src="http://openweathermap.org/img/wn/{{imageIcon}}@2x.png" alt="weather image">
+
+    <table class="city-table">
+        <tr class="city">
+            <td>City</td>
+            <td>{{city}}, {{country}}</td>
+        </tr>
+         <tr>
+            <td>local time</td>
+            <td>{{localTime}}</td>
+        </tr>
+         <tr>
+            <td>sunrise</td>
+            <td>{{sunrise}}</td>
+        </tr>
+          <tr>
+            <td>sunset</td>
+            <td>{{sunset}}</td>
+        </tr>
+        <tr>
+            <td>temperature °C</td>
+            <td>{{temperature}}</td>
+        </tr>
+        <tr>
+            <td>feels like °C</td>
+            <td>{{feels_like}}</td>
+        </tr>
+        <tr>
+            <td>wind speed m/s</td>
+            <td>{{wind_speed}}</td>
+        </tr>
+        <tr> 
+            <td>weather</td> 
+            <td>             
+                    {{#each weather}}
+                    {{this.description}}<br>
+                    {{/each}}    
+            </td>  
+        </tr>
+    </table>
+</body>
+</html>
