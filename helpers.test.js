@@ -1,6 +1,35 @@
 const {showLocalTime,showLocalDate,extractDailyData} = require('./helpers');
 
-const daily = [
+describe('tests showLocalTime functionality', () => {
+
+    const utcTime = 1607648400;
+    const secondsShiftFromUTC = 39600;
+
+    test('returns a string when passed two numbers', () => {
+      expect(typeof showLocalTime(utcTime, secondsShiftFromUTC)).toBe('string');
+
+    });
+    test('returns a string of local time when passed a UTC time and the difference in seconds from UTC', () => {
+      expect(showLocalTime(utcTime, secondsShiftFromUTC)).toBe('12:00');
+    });
+});
+
+describe('tests showLocalDate functionality', () => {
+    const utcTime = 1607648400;
+    const secondsShiftFromUTC = 39600;
+
+    test('returns a string when passed two numbers', () => {
+      expect(typeof showLocalDate(utcTime, secondsShiftFromUTC)).toBe('string');
+    });
+    test('returns a string of local date when passed a UTC time and the difference in seconds from UTC', () => {
+      expect(showLocalDate(utcTime, secondsShiftFromUTC)).toBe('Fri Dec 11 2020');
+    });
+
+});
+
+describe('tests extractDailyData functionality', () => {
+
+  const daily = [
     {
       dt: 1607648400,
       sunrise: 1607625465,
@@ -75,34 +104,25 @@ const daily = [
     }
   ]
 
-  let example = extractDailyData(daily, 39600, showLocalDate, showLocalTime);
+  const secondsShiftFromUTCVancouver = -28800;
 
-describe('tests showLocalTime functionality', () => {
+  const mockFunction1 = jest.fn();
+  const mockFunction2 = jest.fn();
 
-    const utcTime = 1607648400;
-    const secondsShiftFromUTC = 39600;
-
-    test('returns a string when passed two numbers', () => {
-        expect(typeof showLocalTime(utcTime, secondsShiftFromUTC)).toBe('string');
-
+    test('returns an array of objects with number & string values, when passed an array, a number & two functions', () => {
+      expect(typeof extractDailyData(daily , secondsShiftFromUTCVancouver, showLocalDate, showLocalTime)).toBe("object");
+      expect(typeof extractDailyData(daily, secondsShiftFromUTCVancouver, showLocalDate,showLocalTime )[0].mornTemp).toBe("number");
+      expect(typeof extractDailyData(daily, secondsShiftFromUTCVancouver, showLocalDate,showLocalTime )[1].date).toBe("string");
     });
-    // test('returns a string of local time when passed a UTC time and the difference in seconds from UTC', () => {
+    test('returns an array of objects containing string & number values', () => {
+      expect(extractDailyData(daily , secondsShiftFromUTCVancouver, showLocalDate, showLocalTime)[0].date).toBe("Thu Dec 10 2020");
+      expect(extractDailyData(daily, secondsShiftFromUTCVancouver, showLocalDate,showLocalTime )[1].eveTemp).toBe(17.25);
+      expect(extractDailyData(daily, secondsShiftFromUTCVancouver, showLocalDate,showLocalTime )[2].weather).toBe("cloudy");
+    });
+    test('calls the two functions passed to it', () => {
+      extractDailyData(daily, secondsShiftFromUTCVancouver, mockFunction1, mockFunction2 )
+      expect(mockFunction1).toHaveBeenCalled();
+      expect(mockFunction2).toHaveBeenCalled();
+    });
 
-    // });
 });
-
-describe('tests showLocalDate functionality', () => {
-    const utcTime = 1607648400;
-    const secondsShiftFromUTC = 39600;
-
-    test('returns a string when passed two numbers', () => {
-        expect(typeof showLocalDate(utcTime, secondsShiftFromUTC)).toBe('string');
-    })
-});
-
-// describe('tests extractDailyData functionality', () => {
-//     test('returns an object when passed two numbers & two functions', () => {
-//         expect()
-//     })
-
-// });
