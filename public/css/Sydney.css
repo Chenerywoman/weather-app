@@ -4,7 +4,7 @@ body{
     color: #2EC4B6;
 }
 
-.today {
+.sydney-today {
     width: 450px;
     margin: 0 auto;
     border: 1px solid #2EC4B6;
@@ -14,7 +14,7 @@ body{
     margin-bottom: 5em;
 }
 
-.today tr td:nth-child(odd) {
+.sydney-today tr td:nth-child(odd) {
     border: 1px solid #2EC4B6;
     border-collapse: collapse;
     background-color: #FFBF69;
@@ -23,14 +23,14 @@ body{
     padding: 0.5em;
 }
 
-.today tr td:nth-child(even) {
+.sydney-today tr td:nth-child(even) {
     border: 1px solid #2EC4B6;
     border-collapse: collapse;
     background-color: white;;
     padding: 0.5em;
 }
 
-.daily {
+.sydney-daily {
     width: 400px;
     margin: 0 auto;
     border: 1px solid #2EC4B6;
@@ -40,7 +40,7 @@ body{
     margin-bottom: 5em;
 }
 
-.daily tr td:nth-child(odd){
+.sydney-daily tr td:nth-child(odd){
     border: 1px solid #2EC4B6;
     border-collapse: collapse;
     background-color: #FFBF69;
@@ -48,7 +48,7 @@ body{
     font-weight: bold;
 }
 
-.daily tr td:nth-child(even){
+.sydney-daily tr td:nth-child(even){
     border: 1px solid #2EC4B6;
     border-collapse: collapse;
     background-color: white;;

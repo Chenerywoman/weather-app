@@ -12,7 +12,7 @@
     <h2>Local time: {{localTime}}</h2>
      <img src="http://openweathermap.org/img/wn/{{currentWeatherIcon}}@2x.png" alt="weather image">
     <p>
-        <table class="today">
+        <table class="sydney-today">
             <tr>
                 <td>latitude</td>
                 <td>{{latitude}}</td>
@@ -46,7 +46,7 @@
         {{#each daily}}
         <h3 class="heading">{{this.date}}: {{this.weather}}</h3>
           <img src="http://openweathermap.org/img/wn/{{this.weatherIcon}}@2x.png" alt="weather image">
-        <table class="daily">
+        <table class="sydney-daily">
             <tr>
                 <td>sunrise</td>
                 <td>{{this.sunrise}}</td>
