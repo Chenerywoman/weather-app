@@ -113,7 +113,6 @@ const extractDailyData = (dailyArray, utcShift, datefn, timefn ) => {
 }
 
 let example = extractDailyData(daily, 39600, showLocalDate, showLocalTime);
-console.log(example);
 
 module.exports = {
     showLocalTime,
