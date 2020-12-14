@@ -13,7 +13,6 @@ const key = process.env.KEY;
 
 const viewsPath = path.join(__dirname, "/views");
 const partialPath = path.join(__dirname,"views/inc");
-console.log(partialPath)
 const publicDirectory = path.join(__dirname, "/public");
 
 app.set("view engine", "hbs");
@@ -38,8 +37,6 @@ app.post("/", async (req, res) => {
 
         const weatherApi = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.body.city},,${req.body.country}&appid=${key}&units=metric`)
 
-        // console.log(weatherApi.data)
-
         let localTime  = showLocalTime(weatherApi.data.dt,weatherApi.data.timezone);
 
         let sunrise = showLocalTime(weatherApi.data.sys.sunrise, weatherApi.data.timezone);
@@ -60,9 +57,11 @@ app.post("/", async (req, res) => {
         })
 
     } catch (error) {
-
-        console.log(error);
-        res.render("404")
+      
+        res.render("ErrorPage",{
+            code: error.response.data.cod,
+            message: error.response.data.message,
+        });
     }
     
 });
@@ -75,8 +74,6 @@ app.get("/Sydney", async (req, res) => {
     try {
     
         const weatherInfoApi = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&units=metric&appid=${key}`);
-
-        console.log(weatherInfoApi.data)
 
         const localTime = showLocalTime(weatherInfoApi.data.current.dt, weatherInfoApi.data.timezone_offset);
 
@@ -103,8 +100,10 @@ app.get("/Sydney", async (req, res) => {
 
     } catch (error) {
 
-        console.log(error);
-        res.render("404")
+        res.render("ErrorPage",{
+            code: error.response.data.cod,
+            message: error.response.data.message,
+        });
 
     }
 });
@@ -124,7 +123,6 @@ app.post("/7Days", async (req, res) => {
 
         const sevenDayApi = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${key}`);
 
-
         const localTime = showLocalTime(sevenDayApi.data.current.dt, sevenDayApi.data.timezone_offset);
 
         const sunriseToday = showLocalTime(sevenDayApi.data.current.sunrise, sevenDayApi.data.timezone_offset);
@@ -133,7 +131,6 @@ app.post("/7Days", async (req, res) => {
 
         const dailyInfo = extractDailyData(sevenDayApi.data.daily, sevenDayApi.data.timezone_offset, showLocalDate, showLocalTime)
 
-        console.log(weatherApi.data)
         res.render("7Days", {
 
                 city: weatherApi.data.name,
@@ -152,15 +149,24 @@ app.post("/7Days", async (req, res) => {
         });
 
     } catch (error) {
-
-        console.log(error);
+        res.render("ErrorPage",{
+            code: error.response.data.cod,
+            message: error.response.data.message,
+        });
     }
 
 });
 
-app.get("*", (req, res) => {
+app.get("/ErrorPage", (req, res) => {
+    res.render("ErrorPage");
+})
 
-    res.send("<h1> Sorry that page does not exist</h1>")
+app.get("*", (req, res) => {
+    console.log(req.headers.referer)
+    res.render("PageNotFound", {
+        //how to get this to appear on page
+        page: req.headers.referer
+    });
 });
 
 app.listen(5000, () => {
