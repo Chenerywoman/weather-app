@@ -124,6 +124,7 @@ app.post("/7Days", async (req, res) => {
 
         const sevenDayApi = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${key}`);
 
+
         const localTime = showLocalTime(sevenDayApi.data.current.dt, sevenDayApi.data.timezone_offset);
 
         const sunriseToday = showLocalTime(sevenDayApi.data.current.sunrise, sevenDayApi.data.timezone_offset);
@@ -132,7 +133,11 @@ app.post("/7Days", async (req, res) => {
 
         const dailyInfo = extractDailyData(sevenDayApi.data.daily, sevenDayApi.data.timezone_offset, showLocalDate, showLocalTime)
 
+        console.log(weatherApi.data)
         res.render("7Days", {
+
+                city: weatherApi.data.name,
+                country: weatherApi.data.sys.country,
                 latitude: lat,
                 longitude: lon,
                 localTime: localTime,
