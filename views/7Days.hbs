@@ -16,7 +16,12 @@
         <label for="city">city</label>
         <input required type="text" name="city">
         <label for="country">country</label>
-        <input required type="text" name="country">
+        <select name="country">
+            {{#each countries}}
+            <option value={{this.alpha2Code}}>{{this.name}}</option>
+            {{/each}}
+        </select>
+        {{!-- <input required type="text" name="country"> --}}
         <button type="submit">search</button>
     </form>
     

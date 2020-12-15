@@ -11,7 +11,7 @@ form {
     padding: 1em;
     border-radius: 5%;
     text-align: left;
-    width:200px;
+    width:350px;
     margin: auto;
     
 }
@@ -25,7 +25,13 @@ label{
 
 input{
     width: 95%;
-    border: white;
+    border-color: white;
+    color: #2EC4B6;
+}
+
+select {
+    color: #2EC4B6;
+    border-color: white;
 }
 
 button{
@@ -41,14 +47,11 @@ button{
 .image-container{
     width: 125px;
     height:125px;
-    /* border: 1px solid black; */
-    /* display: inline; */
     margin: 0 auto;
 }
 
 img {
     margin: 1em;
-    /* border: 1px solid pink; */
 }
 
 .city-table {

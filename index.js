@@ -27,8 +27,25 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.render("index");
+app.get("/", async (req, res) => {
+
+    try {
+        countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
+ 
+        countryCodes = countryData.data;
+        
+        res.render("index", {
+                countries: countryCodes
+            });
+       
+    } catch (error) {
+
+        res.render("ErrorPage",{
+            code: error.response.data.cod,
+            message: error.response.data.message,
+        });
+    }
+    
 });
 
 app.post("/", async (req, res) => {
@@ -41,7 +58,11 @@ app.post("/", async (req, res) => {
 
         let sunrise = showLocalTime(weatherApi.data.sys.sunrise, weatherApi.data.timezone);
 
-        let sunset = showLocalTime(weatherApi.data.sys.sunset,weatherApi.data.timezone)
+        let sunset = showLocalTime(weatherApi.data.sys.sunset,weatherApi.data.timezone);
+
+        countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
+ 
+        countryCodes = countryData.data;
     
         res.render("index", {
             imageIcon: weatherApi.data.weather[0].icon,
@@ -54,10 +75,11 @@ app.post("/", async (req, res) => {
             sunrise: sunrise, 
             sunset: sunset,
             localTime: localTime,
+            countries: countryCodes
         })
 
     } catch (error) {
-      
+        console.log(error)
         res.render("ErrorPage",{
             code: error.response.data.cod,
             message: error.response.data.message,
@@ -108,8 +130,23 @@ app.get("/Sydney", async (req, res) => {
     }
 });
 
-app.get("/7Days", (req, res) => {
-    res.render("7Days")
+app.get("/7Days", async (req, res) => {
+
+    try {
+        countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
+ 
+        countryCodes = countryData.data;
+
+        res.render("7Days", {
+            countries: countryCodes
+        });
+
+    } catch (error) {
+        res.render("ErrorPage",{
+            code: error.response.data.cod,
+            message: error.response.data.message,
+        });
+    }
 });
 
 app.post("/7Days", async (req, res) => {
@@ -127,9 +164,13 @@ app.post("/7Days", async (req, res) => {
 
         const sunriseToday = showLocalTime(sevenDayApi.data.current.sunrise, sevenDayApi.data.timezone_offset);
 
-        const sunsetToday = showLocalTime(sevenDayApi.data.current.sunset, sevenDayApi.data.timezone_offset)
+        const sunsetToday = showLocalTime(sevenDayApi.data.current.sunset, sevenDayApi.data.timezone_offset);
 
-        const dailyInfo = extractDailyData(sevenDayApi.data.daily, sevenDayApi.data.timezone_offset, showLocalDate, showLocalTime)
+        const dailyInfo = extractDailyData(sevenDayApi.data.daily, sevenDayApi.data.timezone_offset, showLocalDate, showLocalTime);
+
+        countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
+ 
+        countryCodes = countryData.data;
 
         res.render("7Days", {
 
@@ -145,7 +186,8 @@ app.post("/7Days", async (req, res) => {
                 currentHumidity: sevenDayApi.data.current.humidity,
                 currentWeather: sevenDayApi.data.current.weather[0].description,
                 currentWeatherIcon: sevenDayApi.data.current.weather[0].icon,
-                daily: dailyInfo
+                daily: dailyInfo,
+                countries: countryCodes
         });
 
     } catch (error) {

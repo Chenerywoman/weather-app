@@ -11,7 +11,7 @@ body {
     padding: 1em;
     border-radius: 5%;
     text-align: left;
-    width:200px;
+    width:350px;
     margin: auto;
 }
 
@@ -25,6 +25,11 @@ body {
 .seven-days-form input{
     width: 95%;
     border: white;
+}
+
+.seven-days-form select{
+    color: #2EC4B6;
+    border-color: white;
 }
 
 .seven-days-form button {
