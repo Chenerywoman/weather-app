@@ -204,10 +204,9 @@ app.get("/ErrorPage", (req, res) => {
 })
 
 app.get("*", (req, res) => {
-    console.log(req.headers.referer)
+
     res.render("PageNotFound", {
-        //how to get this to appear on page
-        page: req.headers.referer
+        page: req.url,    
     });
 });
 
