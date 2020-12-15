@@ -123,6 +123,8 @@ describe('tests extractDailyData functionality', () => {
       extractDailyData(daily, secondsShiftFromUTCVancouver, mockFunction1, mockFunction2 )
       expect(mockFunction1).toHaveBeenCalled();
       expect(mockFunction2).toHaveBeenCalled();
+      expect(mockFunction1.mock.calls.length).toBe(3);
+      expect(mockFunction2.mock.calls.length).toBe(6);
     });
 
 });
