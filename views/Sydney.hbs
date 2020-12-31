@@ -10,6 +10,9 @@
     {{>Nav}}
     <div class="fixed-section">
         <h1 class="sydney-today-heading">Information about Sydney, Australia</h1>
+     </div>
+
+     <div class="scroll-section">
         <h2 class="sydney-today-time">Local time: {{localTime}}</h2>
         <img class="sydney-today-image" src="http://openweathermap.org/img/wn/{{currentWeatherIcon}}@2x.png" alt="weather image">
 
@@ -41,9 +44,7 @@
             </table>
 
         <h2 class="sydney-next-seven">Next 7 days</h2>
-    </div>
 
-    <div class="scroll-section">
         {{#each daily}}
         <h3 class="heading">{{this.date}}: {{this.weather}}</h3>
           <img class="sydney-daily-image"src="http://openweathermap.org/img/wn/{{this.weatherIcon}}@2x.png" alt="weather image">

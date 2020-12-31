@@ -13,6 +13,10 @@ body{
     margin-top: 3em;
 }
 
+.scroll-section{
+    margin-top: 8em;
+}
+
 .sydney-today-time{
     margin:0;
 }
@@ -49,10 +53,6 @@ body{
 
 .sydney-next-seven{
     margin:0.75em auto 0 auto;
-}
-
-.scroll-section{
-    margin-top: 31em;
 }
 
 .sydney-daily-heading{
@@ -93,7 +93,7 @@ body{
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 376px) and (max-device-width : 480px) {
 
     .sydney-today-heading{
         font-size: x-large;
@@ -140,10 +140,14 @@ body{
 
 
 /* Small phones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 250px) and (max-device-width : 319px) {
+@media only screen and (min-device-width : 250px) and (max-device-width : 375px) {
 
     .sydney-today-heading{
         font-size: large;
+    }
+
+    .scroll-section{
+        margin-top: 7em;
     }
 
     .sydney-today-time{
@@ -172,10 +176,6 @@ body{
 
     .sydney-next-seven{
         font-size: large;
-    }
-
-    .scroll-section{
-        margin-top: 28em;
     }
     
     .sydney-daily-heading{
