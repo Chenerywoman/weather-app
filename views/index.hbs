@@ -12,12 +12,12 @@
     <h2>Enter a city &amp country then click search</h2>
     <br>
    
-    <form action="/" method="POST">
-        <label for="city">city</label>
-        <input required type="text" name="city">
-        <label for="country">country</label>
+    <form class="find-city-country" action="/" method="POST">
+        <label class="find-city" for="city">city</label>
+        <input class="find-city" required type="text" name="city">
+        <label class="find-country" for="country">country</label>
         {{#if countries}}
-        <select name="country">
+        <select class="find-country" name="country">
             {{#each countries}}
                 <option value={{this.alpha2Code}}>{{this.name}}</option>
             {{/each}}

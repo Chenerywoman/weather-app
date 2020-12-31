@@ -22,14 +22,6 @@ body {
     margin: 0.5em auto;
 }
 
-.local-time{
-    margin: 0.5em auto;
-}
-
-.today-image{
-    margin: 0;
-}
-
 .seven-days-form{
     border: 1px solid #FF9F1C;
     background-color: #FFBF69;
@@ -69,6 +61,18 @@ body {
 
 }
 
+.scroll-section{
+    margin-top: 23em;
+}
+
+.local-time{
+    margin: 0.5em auto;
+}
+
+.today-image{
+    margin: 0;
+}
+
 .today {
     width: 450px;
     margin: 0 auto;
@@ -93,10 +97,6 @@ body {
     border-collapse: collapse;
     background-color: white;;
     padding: 0.5em;
-}
-
-.scroll-section{
-    margin-top: 49em;
 }
 
 .daily-heading{
@@ -135,5 +135,50 @@ body {
     padding-left: 0.5em;
 }
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 250px) and (max-device-width : 480px) {
 
+    .today-heading{
+        font-size: x-large;
+    }
+
+    .today-instructions{
+        font-size: large;
+    }
+  
+    .seven-days-form{
+        width:250px;
+        margin: 0.5em auto;  
+    }
+
+    .seven-days-form select{
+        width: 95%;
+    }
+
+    .city-heading{
+        font-size: x-large;
+    }
+
+    .scroll-section{
+        margin-top: 22em;
+    }
+
+    .local-time{
+        font-size: large;
+    }
+
+    .today-image{
+        height: 4em;
+        width: 4em;
+    }
+
+    .today{
+        width: 300px;
+    }
+
+    .daily-image{
+        height: 4em;
+        width: 4em;
+    }
+}
 

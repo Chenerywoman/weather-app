@@ -25,9 +25,12 @@
             <button type="submit">search</button>
         </form>
     
-        {{#if currentWeatherIcon}}
+    {{#if currentWeatherIcon}}
 
-            <h1>{{city}}, {{country}}</h1>
+            <h1 class="city-heading">{{city}}, {{country}}</h1>
+    </div>
+
+    <div class="scroll-section">
             <h2 class="local-time"> local time: {{localTime}}</h2>
             <img class="today-image"src="http://openweathermap.org/img/wn/{{currentWeatherIcon}}@2x.png" alt="weather image">
         
@@ -59,10 +62,8 @@
             </table>
 
             <h2>Next 7 days</h2>
-        {{/if}}
-    </div>
+    {{/if}}
 
-     <div class="scroll-section">
         {{#each daily}}
             <h3 class="daily-heading">{{this.date}}: {{this.weather}}</h3>
             <img class="daily-image" src="http://openweathermap.org/img/wn/{{this.weatherIcon}}@2x.png" alt="weather image">

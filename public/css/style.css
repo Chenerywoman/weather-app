@@ -1,5 +1,6 @@
 body {
     background-color: #CBF3F0;
+    width: 100%;
     text-align: center;
     margin:0;
     color: #2EC4B6;
@@ -10,7 +11,7 @@ h1{
     margin-top: 2.5em;
 }
 
-form {
+form.find-city-country{
     border: 1px solid #FF9F1C;
     background-color: #FFBF69;
     padding: 1em;
@@ -34,7 +35,7 @@ input{
     color: #2EC4B6;
 }
 
-select {
+select.find-country {
     color: #2EC4B6;
     border-color: white;
 }
@@ -87,4 +88,39 @@ td {
 
 .table-lable{
     width: 30%;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+    form.find-city-country{
+        width:250px;
+        margin: 0.5em auto;  
+    }
+
+    select.find-country {
+        width: 95%;
+    }
+
+    .city-table {
+        width: 300px;
+    }
+}
+
+/* Small phones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 250px) and (max-device-width : 319px) {
+    /* Styles */
+    form.find-city-country{
+        width:200px;
+        margin: 0.5em auto;  
+    }
+
+    select.find-country {
+        width: 95%;
+    }
+
+    .city-table {
+        width: 250px;
+    }
 }

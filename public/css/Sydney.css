@@ -91,3 +91,101 @@ body{
     background-color: white;
     padding-left: 0.5em;
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .sydney-today-heading{
+        font-size: x-large;
+    }
+
+    .sydney-today-time{
+        font-size: large;
+    }
+
+    .sydney-today-image{
+        height: 4em;
+        width: 4em;
+    }
+
+    .sydney-today {
+        width: 300px;
+    }
+
+    .sydney-today tr td:nth-child(odd) {
+        font-size:1em;
+        padding: 0.25em;
+    }
+    
+    .sydney-today tr td:nth-child(even) {
+        padding: 0.5em;
+        font-size:1em;
+    }
+
+    .sydney-next-seven{
+        font-size: x-large;
+    }
+
+    .sydney-daily-heading{
+        font-size: large;
+    }
+
+
+    .sydney-daily-image{
+        height: 4em;
+        width: 4em;
+    }
+
+}
+
+
+/* Small phones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 250px) and (max-device-width : 319px) {
+
+    .sydney-today-heading{
+        font-size: large;
+    }
+
+    .sydney-today-time{
+        font-size: medium;
+    }
+
+    .sydney-today-image{
+        height: 4em;
+        width: 4em;
+    }
+
+    .sydney-today {
+        width: 250px;
+    }
+
+    .sydney-today tr td:nth-child(odd) {
+        font-weight: normal;
+        font-size:1em;
+        padding: 0.25em;
+    }
+    
+    .sydney-today tr td:nth-child(even) {
+        padding: 0.5em;
+        font-size:1em;
+    }
+
+    .sydney-next-seven{
+        font-size: large;
+    }
+
+    .scroll-section{
+        margin-top: 28em;
+    }
+    
+    .sydney-daily-heading{
+        font-size: medium;
+    }
+
+
+    .sydney-daily-image{
+        height: 4em;
+        width: 4em;
+    }
+
+}
