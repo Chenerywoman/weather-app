@@ -1,7 +1,24 @@
 body{
     background-color: #CBF3F0;
     text-align: center;
+    margin:0;
     color: #2EC4B6;
+}
+
+.fixed-section{
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: #CBF3F0;
+    margin-top: 3em;
+}
+
+.sydney-today-time{
+    margin:0;
+}
+
+.sydney-today-image{
+    margin: 0;
 }
 
 .sydney-today {
@@ -11,7 +28,7 @@ body{
     text-align: left;
     border-collapse: collapse;
     font-weight: normal;
-    margin-bottom: 5em;
+    margin-bottom: 1em;
 }
 
 .sydney-today tr td:nth-child(odd) {
@@ -30,6 +47,22 @@ body{
     padding: 0.5em;
 }
 
+.sydney-next-seven{
+    margin:0.75em auto 0 auto;
+}
+
+.scroll-section{
+    margin-top: 31em;
+}
+
+.sydney-daily-heading{
+    margin:0;
+}
+
+.sydney-daily-image{
+    margin:0;
+}
+
 .sydney-daily {
     width: 400px;
     margin: 0 auto;
@@ -37,7 +70,7 @@ body{
     text-align: left;
     border-collapse: collapse;
     font-weight: normal;
-    margin-bottom: 5em;
+    margin-bottom: 2em;
 }
 
 .sydney-daily tr td:nth-child(odd){

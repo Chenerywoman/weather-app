@@ -1,8 +1,33 @@
 body {
+    margin:0;
     background-color: #CBF3F0;
     text-align: center;
     color: #2EC4B6;
     font-weight: bold;
+}
+
+.fixed-section{
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: #CBF3F0;
+    margin-top: 3em;
+}
+
+.today-heading{
+    margin: 0;
+}
+
+.today-instructions{
+    margin: 0.5em auto;
+}
+
+.local-time{
+    margin: 0.5em auto;
+}
+
+.today-image{
+    margin: 0;
 }
 
 .seven-days-form{
@@ -12,7 +37,7 @@ body {
     border-radius: 5%;
     text-align: left;
     width:350px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .seven-days-form label{
@@ -51,7 +76,7 @@ body {
     text-align: left;
     border-collapse: collapse;
     font-weight: normal;
-    margin-bottom: 5em;
+    margin-bottom: 2em;
 }
 
 .today tr td:nth-child(odd) {
@@ -70,6 +95,18 @@ body {
     padding: 0.5em;
 }
 
+.scroll-section{
+    margin-top: 49em;
+}
+
+.daily-heading{
+    margin: 0.25em;
+}
+
+.daily-image{
+    margin:0;
+}
+
 .daily {
     width: 400px;
     margin: 0 auto;
@@ -77,7 +114,7 @@ body {
     text-align: left;
     border-collapse: collapse;
     font-weight: normal;
-    margin-bottom: 5em;
+    margin-bottom: 2em;
 }
 
 .daily tr td:nth-child(odd){
@@ -93,3 +130,6 @@ body {
     border-collapse: collapse;
     background-color: white;;
 }
+
+
+

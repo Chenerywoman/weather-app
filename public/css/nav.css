@@ -1,6 +1,18 @@
+nav {
+    position: fixed;
+    top:0;
+    width: 100%;
+    margin:0;
+    padding-left: 0;
+    background-color: #CBF3F0;
+    font-weight: bold;
+}
+
 nav ul{
     list-style: none;
     display: flex;
+    margin: none;
+    padding-left: 0;
 }
 
 li {

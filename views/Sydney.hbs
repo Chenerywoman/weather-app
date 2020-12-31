@@ -8,44 +8,45 @@
 </head>
 <body>
     {{>Nav}}
-    <h1>Information about Sydney, Australia</h1>
-    <h2>Local time: {{localTime}}</h2>
-     <img src="http://openweathermap.org/img/wn/{{currentWeatherIcon}}@2x.png" alt="weather image">
-    <p>
-        <table class="sydney-today">
-            <tr>
-                <td>latitude</td>
-                <td>{{latitude}}</td>
-                <td>longitude</td>
-                <td>{{longitude}}</td>
-            </tr>
-            <tr>
-                <td>sunrise today</td>
-                <td>{{sunriseToday}}</td>
-                <td>sunset today</td>
-                <td>{{sunsetToday}}</td>
-            </tr>
-            <tr>
-                <td>today's temperature °C</td>
-                <td>{{currentTemp}}</td>
-                <td>feels like °C</td>
-                <td>{{currentFeelsLike}}</td>
-            </tr>
-        <tr>
-                <td>current humidity</td>
-                <td>{{currentHumidity}}</td>
-                <td>current weather</td>
-                <td>{{currentWeather}}</td>
-        </tr>
+    <div class="fixed-section">
+        <h1>Information about Sydney, Australia</h1>
+        <h2 class="sydney-today-time">Local time: {{localTime}}</h2>
+        <img class="sydney-today-image" src="http://openweathermap.org/img/wn/{{currentWeatherIcon}}@2x.png" alt="weather image">
 
-        </table>
-    </p>
+            <table class="sydney-today">
+                <tr>
+                    <td>latitude</td>
+                    <td>{{latitude}}</td>
+                    <td>longitude</td>
+                    <td>{{longitude}}</td>
+                </tr>
+                <tr>
+                    <td>sunrise today</td>
+                    <td>{{sunriseToday}}</td>
+                    <td>sunset today</td>
+                    <td>{{sunsetToday}}</td>
+                </tr>
+                <tr>
+                    <td>today's temperature °C</td>
+                    <td>{{currentTemp}}</td>
+                    <td>feels like °C</td>
+                    <td>{{currentFeelsLike}}</td>
+                </tr>
+                <tr>
+                        <td>current humidity</td>
+                        <td>{{currentHumidity}}</td>
+                        <td>current weather</td>
+                        <td>{{currentWeather}}</td>
+                </tr>
+            </table>
 
-    <h2>Next 7 days</h2>
-    
+        <h2 class="sydney-next-seven">Next 7 days</h2>
+    </div>
+
+    <div class="scroll-section">
         {{#each daily}}
-        <h3 class="heading">{{this.date}}: {{this.weather}}</h3>
-          <img src="http://openweathermap.org/img/wn/{{this.weatherIcon}}@2x.png" alt="weather image">
+        <h3 class="sydney-daily-heading">{{this.date}}: {{this.weather}}</h3>
+          <img class="sydney-daily-image"src="http://openweathermap.org/img/wn/{{this.weatherIcon}}@2x.png" alt="weather image">
         <table class="sydney-daily">
             <tr>
                 <td>sunrise</td>
@@ -77,6 +78,6 @@
             </tr>
         </table>
         {{/each}}
-        
+    </div>
 </body>
 </html>
