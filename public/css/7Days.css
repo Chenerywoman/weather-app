@@ -108,7 +108,7 @@ body {
 }
 
 .daily {
-    width: 400px;
+    width: 200px;
     margin: 0 auto;
     border: 1px solid #2EC4B6;
     text-align: left;
@@ -123,12 +123,16 @@ body {
     background-color: #FFBF69;
     color: #2EC4B6;
     font-weight: bold;
+    width:75%;
+    text-align: left;
+    padding-left: 0.5em;
 }
 
 .daily tr td:nth-child(even){
     border: 1px solid #2EC4B6;
     border-collapse: collapse;
-    background-color: white;;
+    background-color: white;
+    padding-left: 0.5em;
 }
 
 

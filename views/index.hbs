@@ -19,7 +19,7 @@
         {{#if countries}}
         <select name="country">
             {{#each countries}}
-            <option value={{this.alpha2Code}}>{{this.name}}</option>
+                <option value={{this.alpha2Code}}>{{this.name}}</option>
             {{/each}}
         </select>
         {{/if}}
@@ -40,35 +40,35 @@
 
     <table class="city-table">
         <tr class="city">
-            <td>City</td>
+            <td class="table-lable">City</td>
             <td>{{city}}, {{country}}</td>
         </tr>
          <tr>
-            <td>local time</td>
+            <td class="table-lable">local time</td>
             <td>{{localTime}}</td>
         </tr>
          <tr>
-            <td>sunrise</td>
+            <td class="table-lable">sunrise</td>
             <td>{{sunrise}}</td>
         </tr>
           <tr>
-            <td>sunset</td>
+            <td class="table-lable">sunset</td>
             <td>{{sunset}}</td>
         </tr>
         <tr>
-            <td>temperature °C</td>
+            <td class="table-lable">temperature °C</td>
             <td>{{temperature}}</td>
         </tr>
         <tr>
-            <td>feels like °C</td>
+            <td class="table-lable">feels like °C</td>
             <td>{{feels_like}}</td>
         </tr>
         <tr>
-            <td>wind speed m/s</td>
+            <td class="table-lable">wind speed m/s</td>
             <td>{{wind_speed}}</td>
         </tr>
         <tr> 
-            <td>weather</td> 
+            <td class="table-lable">weather</td> 
             <td>             
                     {{#each weather}}
                     {{this.description}}<br>

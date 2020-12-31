@@ -39,6 +39,10 @@ select {
     border-color: white;
 }
 
+option {
+    color: #2EC4B6;
+}
+
 button{
     margin-top: 1em;
     display: block;
@@ -79,4 +83,8 @@ td {
     font-weight: bold;
     background-color: #FFBF69;
     color: #2EC4B6
+}
+
+.table-lable{
+    width: 30%;
 }
