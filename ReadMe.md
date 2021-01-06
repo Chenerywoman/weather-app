@@ -47,7 +47,7 @@ Some issues I had and the solutions I came up with were:
 One of my learning points for the project is:
 
 * **Issue** To deal with the issue of data not being returned from an api, I used variables passed to the handlebars files via the res.render() method.  I then used handlebars {{#if}} conditional helper to check if data was returned and display it on the page. 
-* **Learning point** I understand that a clearer way to structure the code would be to move if/else logic to the back end code in index.js and deal with any errors in a catch block.
+* **Learning point** I understand that a clearer way to structure the code would be to move if/else logic to the back end code in index.js.  Any errors are already dealt with in catch blocks.
 
 ## Testing
 
