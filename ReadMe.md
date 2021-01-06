@@ -34,7 +34,7 @@ The third part of the project brief was to create a 7 days webpage:
     - a second call to the openweathermap api using the latitude & longitude to get current weather data plus weather information for the following 7 days 
     - this data (plus weather icons) to be displayed on the frontend
 
-## Issues, solutions and learning points
+## Issues and solutions 
 
 Some issues I had and the solutions I came up with were:
 
@@ -46,9 +46,9 @@ Some issues I had and the solutions I came up with were:
 
 One of my learning points for the project is:
 
-* **Issue** To deal with the issue of country codes data not being returned from the  restcountries.eu api, I used variables passed to the handlebars files via the res.render() method.  I then used handlebars {{#if}} conditional helper to check if data was returned and display it in the select statment.  If not, an input box was rendered.  However, this would creat the same issue that I had decided to deal with by having a select icon, i.e. that the website user would need to know the ISO 3166 country codes.
+* **Issue** To deal with the issue of country codes data not being returned from the  restcountries.eu api, I used variables passed to the handlebars files via the res.render() method.  I then used handlebars {{#if}} conditional helper to check if data was returned and display it in the select statment.  If not, an input box was rendered.  However, this would create the same issue that I had decided to deal with by having a select icon, i.e. that the website user would need to know the ISO 3166 country codes.
 
-* **Learning point** I understand that a clearer way to structure the code would be to move if/else logic to the back end code in index.js.  Any errors are already dealt with in catch blocks.
+* **Solution** I removed the if/else logic and added a relevant message to the error page rendered from the catch block.
 
 ## Testing
 
