@@ -16,16 +16,11 @@
         <label class="find-city" for="city">city</label>
         <input class="find-city" required type="text" name="city">
         <label class="find-country" for="country">country</label>
-        {{#if countries}}
         <select class="find-country" name="country">
             {{#each countries}}
                 <option value={{this.alpha2Code}}>{{this.name}}</option>
             {{/each}}
         </select>
-        {{/if}}
-        {{#else}}
-        <input required type="text" name="country">
-        {{/else}}
         <button type="submit">search</button>
     </form>
 

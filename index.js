@@ -5,6 +5,7 @@ const hbs = require('hbs');
 const axios = require('axios');
 const {showLocalTime, showLocalDate, extractDailyData} = require('./helpers');
 const dotenv = require('dotenv');
+const { setPriority } = require('os');
 
 // tells dotenv where the variables are
 dotenv.config({path: './.env'});
@@ -30,19 +31,25 @@ app.use(express.json());
 app.get("/", async (req, res) => {
 
     try {
-        const countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
- 
-        const countryCodes = countryData.data;
-        
-        res.render("index", {
+    
+    const countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
+      
+    const countryCodes = countryData.data;
+    
+    res.render("index", {
                 countries: countryCodes
             });
        
     } catch (error) {
+        console.log(error)
+         
+        const code = error.response ? error.response.data.cod : error.code;
+
+        const message = error.response ? error.response.data.message : 'sorry no country codes found';
 
         res.render("ErrorPage",{
-            code: error.response.data.cod,
-            message: error.response.data.message,
+            code: code,
+            message: message
         });
     }
     
@@ -51,7 +58,7 @@ app.get("/", async (req, res) => {
 app.post("/", async (req, res) => {
     
     try {
-
+        
         const weatherApi = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.body.city},,${req.body.country}&appid=${key}&units=metric`)
 
         let localTime  = showLocalTime(weatherApi.data.dt,weatherApi.data.timezone);
