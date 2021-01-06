@@ -60,9 +60,9 @@ app.post("/", async (req, res) => {
 
         let sunset = showLocalTime(weatherApi.data.sys.sunset,weatherApi.data.timezone);
 
-        countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
+        const countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
  
-        countryCodes = countryData.data;
+        const countryCodes = countryData.data;
     
         res.render("index", {
             imageIcon: weatherApi.data.weather[0].icon,
@@ -168,9 +168,9 @@ app.post("/7Days", async (req, res) => {
 
         const dailyInfo = extractDailyData(sevenDayApi.data.daily, sevenDayApi.data.timezone_offset, showLocalDate, showLocalTime);
 
-        countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
+        const countryData = await axios.get(`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;alpha3Code;altSpellings`);
  
-        countryCodes = countryData.data;
+        const countryCodes = countryData.data;
 
         res.render("7Days", {
 
